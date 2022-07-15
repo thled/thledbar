@@ -1,0 +1,7 @@
+[package]
+name = "thledbar"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cnx = "0.3.0"
