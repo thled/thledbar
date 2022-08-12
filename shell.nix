@@ -7,10 +7,13 @@ in pkgs.mkShell {
     cargo
     rustc
 
+    alsaLib
     cairo
     glib
     gobject-introspection
+    openssl
     pango
+    pkg-config
     python3
     xorg.libxcb
     xorg.xcbutilwm
