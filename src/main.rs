@@ -35,7 +35,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     cnx.add_widget(cpu);
 
     let time_template = Some("%Y-%m-%d %a %I:%M %p".into());
-    cnx.add_widget(Clock::new(attr.clone(), time_template));
+    cnx.add_widget(Clock::new(attr, time_template));
 
     cnx.run()?;
 
