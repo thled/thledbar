@@ -51,6 +51,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: fmt
+          args: --all --check
 
   lint:
     name: Lint
@@ -67,7 +68,8 @@ jobs:
       - name: Run clippy
         uses: actions-rs/cargo@v1
         with:
-          command: clippy -- -D warnings
+          command: clippy
+          args: -D warnings
 
   build:
     name: Build binary
@@ -82,7 +84,8 @@ jobs:
       - name: Build release
         uses: actions-rs/cargo@v1
         with:
-          command: build --all --release
+          command: build
+          args: --all --release
       - name: Strip executable
         run: strip target/release/thledbar
       - name: Release executable
