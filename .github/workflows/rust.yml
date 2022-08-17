@@ -7,79 +7,81 @@ jobs:
     name: Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
           profile: minimal
+      - name: Install dependencies
+        run: sudo apt install libasound2-dev
       - name: Run check
         uses: actions-rs/cargo@v1
         with:
           command: check
 
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          profile: minimal
-      - name: Run tests
-        uses: actions-rs/cargo@v1
-        with:
-          command: test
-
-  style:
-    name: Style
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          profile: minimal
-          components: rustfmt
-      - name: Run fmt
-        uses: actions-rs/cargo@v1
-        with:
-          command: fmt --all -- --check
-
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          profile: minimal
-          components: clippy
-      - name: Run clippy
-        uses: actions-rs/cargo@v1
-        with:
-          command: clippy -- -D warnings
-
-  build:
-    name: Build binary
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-      - name: Build release
-        uses: actions-rs/cargo@v1
-        with:
-          command: build --all --release
-      - name: Strip executable
-        run: strip target/release/thledbar
-      - name: Release executable
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: app/target/release/thledbar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  # test:
+  #   name: Test
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions-rs/toolchain@v1
+  #       with:
+  #         toolchain: stable
+  #         profile: minimal
+  #     - name: Run tests
+  #       uses: actions-rs/cargo@v1
+  #       with:
+  #         command: test
+  #
+  # style:
+  #   name: Style
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions-rs/toolchain@v1
+  #       with:
+  #         toolchain: stable
+  #         profile: minimal
+  #         components: rustfmt
+  #     - name: Run fmt
+  #       uses: actions-rs/cargo@v1
+  #       with:
+  #         command: fmt --all -- --check
+  #
+  # lint:
+  #   name: Lint
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions-rs/toolchain@v1
+  #       with:
+  #         toolchain: stable
+  #         profile: minimal
+  #         components: clippy
+  #     - name: Run clippy
+  #       uses: actions-rs/cargo@v1
+  #       with:
+  #         command: clippy -- -D warnings
+  #
+  # build:
+  #   name: Build binary
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions-rs/toolchain@v1
+  #       with:
+  #         toolchain: stable
+  #     - name: Build release
+  #       uses: actions-rs/cargo@v1
+  #       with:
+  #         command: build --all --release
+  #     - name: Strip executable
+  #       run: strip target/release/thledbar
+  #     - name: Release executable
+  #       uses: softprops/action-gh-release@v1
+  #       if: startsWith(github.ref, 'refs/tags/')
+  #       with:
+  #         files: app/target/release/thledbar
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #
