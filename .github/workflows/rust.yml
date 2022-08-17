@@ -29,7 +29,7 @@ jobs:
           toolchain: stable
           profile: minimal
       - name: Install dependencies
-        run: sudo apt install libasound2-dev libpango1.0-dev
+        run: sudo apt install libasound2-dev libpango1.0-dev libxcb-ewmh-dev
       - name: Run tests
         uses: actions-rs/cargo@v1
         with:
@@ -50,7 +50,7 @@ jobs:
       - name: Run fmt
         uses: actions-rs/cargo@v1
         with:
-          command: fmt --all -- --check
+          command: fmt
 
   lint:
     name: Lint
