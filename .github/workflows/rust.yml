@@ -69,7 +69,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: clippy
-          args: -D warnings
+          args: -- -D warnings
 
   build:
     name: Build binary
@@ -80,7 +80,7 @@ jobs:
         with:
           toolchain: stable
       - name: Install dependencies
-        run: sudo apt install libasound2-dev libpango1.0-dev
+        run: sudo apt install libasound2-dev libpango1.0-dev libxcb-ewmh-dev
       - name: Build release
         uses: actions-rs/cargo@v1
         with:

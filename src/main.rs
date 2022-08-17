@@ -29,11 +29,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         if load > 50 {
             color = Color::red().to_hex();
         }
-        format!(
-            "CPU <span foreground=\"{}\">{}%</span>",
-            color,
-            load,
-        )
+        format!("CPU <span foreground=\"{}\">{}%</span>", color, load)
     });
     let cpu = cpu::Cpu::new(attr.clone(), Some(render))?;
     cnx.add_widget(cpu);
