@@ -13,7 +13,7 @@ jobs:
           toolchain: stable
           profile: minimal
       - name: Install dependencies
-        run: sudo apt install libasound2-dev
+        run: sudo apt install libasound2-dev libpango1.0-dev
       - name: Run check
         uses: actions-rs/cargo@v1
         with:
