@@ -62,4 +62,3 @@ fn default_attr() -> Attributes {
         padding: Padding::new(8.0, 8.0, 0.0, 0.0),
     }
 }
-
