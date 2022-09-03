@@ -266,8 +266,7 @@ dependencies = [
 [[package]]
 name = "cnx"
 version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5d7bc6ddd10fb927917e325726d0ddc10c25aa3757dc71c8371525f525ab1e7e"
+source = "git+https://github.com/mjkillough/cnx?rev=0f0406d750e583f6632a1d42945902ccd00379c4#0f0406d750e583f6632a1d42945902ccd00379c4"
 dependencies = [
  "anyhow",
  "async-stream",
@@ -288,8 +287,7 @@ dependencies = [
 [[package]]
 name = "cnx-contrib"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e42e28a8e6e259a81cd8ca5c0e3c4b9f5c88f8c5fa4585bd2fad513ab4fe9de4"
+source = "git+https://github.com/mjkillough/cnx?rev=0f0406d750e583f6632a1d42945902ccd00379c4#0f0406d750e583f6632a1d42945902ccd00379c4"
 dependencies = [
  "alsa",
  "anyhow",
@@ -304,6 +302,12 @@ dependencies = [
  "tokio-stream",
  "weathernoaa",
 ]
+
+[[package]]
+name = "colors-transform"
+version = "0.2.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9226dbc05df4fb986f48d730b001532580883c4c06c5d1c213f4b34c1c157178"
 
 [[package]]
 name = "core-foundation"
@@ -1393,11 +1397,13 @@ dependencies = [
 
 [[package]]
 name = "thledbar"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "cnx",
  "cnx-contrib",
+ "colors-transform",
+ "xrdb",
 ]
 
 [[package]]
@@ -1804,6 +1810,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "85e60b0d1b5f99db2556934e21937020776a5d31520bf169e851ac44e6420214"
 
 [[package]]
+name = "x11"
+version = "2.20.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f7ae97874a928d821b061fce3d1fc52f08071dd53c89a6102bc06efcac3b2908"
+dependencies = [
+ "libc",
+ "pkg-config",
+]
+
+[[package]]
 name = "xcb"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1821,4 +1837,15 @@ checksum = "43893e47f27bf7d81d489feef3a0e34a457e90bc314b7e74ad9bb3980e4c1c48"
 dependencies = [
  "libc",
  "xcb",
+]
+
+[[package]]
+name = "xrdb"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cc2dd91a21c92e87678e22f95956a03bfd314ce3232f39dbedd49dddb50f0c6d"
+dependencies = [
+ "libc",
+ "scopeguard",
+ "x11",
 ]

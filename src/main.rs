@@ -6,6 +6,8 @@ use cnx::{Cnx, Position};
 use cnx_contrib::widgets::battery::*;
 use cnx_contrib::widgets::cpu;
 
+mod xcolor;
+
 fn main() -> Result<(), Box<dyn Error>> {
     let mut cnx = Cnx::new(Position::Top);
 
@@ -22,7 +24,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
 fn workspaces() -> Pager {
     let active_attr = Attributes {
-        bg_color: Some(Color::blue()),
+        bg_color: Some(xcolor::blue()),
         ..default_attr()
     };
     Pager::new(active_attr, default_attr())
@@ -57,8 +59,8 @@ fn clock() -> Clock {
 fn default_attr() -> Attributes {
     Attributes {
         font: Font::new("Sauce Code Pro Nerd Font Semibold 12"),
-        fg_color: Color::white(),
-        bg_color: None,
+        fg_color: xcolor::foreground(),
+        bg_color: Some(xcolor::background()),
         padding: Padding::new(8.0, 8.0, 0.0, 0.0),
     }
 }
