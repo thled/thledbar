@@ -266,13 +266,14 @@ dependencies = [
 [[package]]
 name = "cnx"
 version = "0.3.0"
-source = "git+https://github.com/mjkillough/cnx?rev=0f0406d750e583f6632a1d42945902ccd00379c4#0f0406d750e583f6632a1d42945902ccd00379c4"
+source = "git+https://github.com/thled/cnx#74b92e21b32d8e7550c60393904b1391305dc075"
 dependencies = [
  "anyhow",
  "async-stream",
  "cairo-rs",
  "cairo-sys-rs",
  "chrono",
+ "colors-transform",
  "futures",
  "lazy_static",
  "ordered-float",
@@ -287,7 +288,7 @@ dependencies = [
 [[package]]
 name = "cnx-contrib"
 version = "0.1.0"
-source = "git+https://github.com/mjkillough/cnx?rev=0f0406d750e583f6632a1d42945902ccd00379c4#0f0406d750e583f6632a1d42945902ccd00379c4"
+source = "git+https://github.com/thled/cnx#74b92e21b32d8e7550c60393904b1391305dc075"
 dependencies = [
  "alsa",
  "anyhow",
@@ -1402,7 +1403,6 @@ dependencies = [
  "anyhow",
  "cnx",
  "cnx-contrib",
- "colors-transform",
  "xrdb",
 ]
 

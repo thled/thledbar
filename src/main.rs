@@ -36,12 +36,12 @@ fn window_title() -> ActiveWindowTitle {
 
 fn cpu() -> Result<cpu::Cpu, anyhow::Error> {
     let render = Box::new(|load| {
-        let mut color = Color::white().to_hex();
+        let mut color = xcolor::foreground().to_hex();
         if load > 10 {
-            color = Color::yellow().to_hex();
+            color = xcolor::yellow().to_hex();
         }
         if load > 50 {
-            color = Color::red().to_hex();
+            color = xcolor::red().to_hex();
         }
         format!("CPU <span foreground=\"{}\">{}%</span>", color, load)
     });

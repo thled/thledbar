@@ -4,8 +4,7 @@ version = "1.0.0"
 edition = "2021"
 
 [dependencies]
-cnx = { git = "https://github.com/mjkillough/cnx", rev = "0f0406d750e583f6632a1d42945902ccd00379c4" }
-cnx-contrib = { git = "https://github.com/mjkillough/cnx", rev = "0f0406d750e583f6632a1d42945902ccd00379c4" }
+cnx = { git = "https://github.com/thled/cnx" }
+cnx-contrib = { git = "https://github.com/thled/cnx" }
 anyhow = "1.0.62"
 xrdb = "0.1.1"
-colors-transform = "0.2.11"
