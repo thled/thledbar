@@ -24,6 +24,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
 fn workspaces() -> Pager {
     let active_attr = Attributes {
+        fg_color: xcolor::background(),
         bg_color: Some(xcolor::blue()),
         ..default_attr()
     };
