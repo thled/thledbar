@@ -266,7 +266,7 @@ dependencies = [
 [[package]]
 name = "cnx"
 version = "0.3.0"
-source = "git+https://github.com/thled/cnx?branch=color_from_hex#e82cac2e7aaec06201a901bfd1d3623a44667b4e"
+source = "git+https://github.com/thled/cnx?branch=mark_hidden_desktops#b5711193e7db463eec5b043d4ded12893d6e312e"
 dependencies = [
  "anyhow",
  "async-stream",
@@ -288,7 +288,7 @@ dependencies = [
 [[package]]
 name = "cnx-contrib"
 version = "0.1.0"
-source = "git+https://github.com/thled/cnx?branch=color_from_hex#e82cac2e7aaec06201a901bfd1d3623a44667b4e"
+source = "git+https://github.com/thled/cnx?branch=mark_hidden_desktops#b5711193e7db463eec5b043d4ded12893d6e312e"
 dependencies = [
  "alsa",
  "anyhow",
@@ -1398,7 +1398,7 @@ dependencies = [
 
 [[package]]
 name = "thledbar"
-version = "1.1.3"
+version = "1.2.0"
 dependencies = [
  "anyhow",
  "cnx",
