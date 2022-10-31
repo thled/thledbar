@@ -28,12 +28,12 @@ fn workspaces() -> Pager {
         bg_color: Some(xcolor::blue()),
         ..default_attr()
     };
-    let hidden_attr = Attributes {
+    let inactive_attr = Attributes {
         fg_color: xcolor::blue(),
         ..default_attr()
     };
 
-    Pager::new(active_attr, default_attr(), hidden_attr)
+    Pager::new(active_attr, inactive_attr, default_attr())
 }
 
 fn window_title() -> ActiveWindowTitle {
