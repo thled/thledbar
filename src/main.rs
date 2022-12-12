@@ -32,8 +32,13 @@ fn workspaces() -> Pager {
         fg_color: xcolor::blue(),
         ..default_attr()
     };
+    let pager_attrs = PagerAttributes {
+        active_attr,
+        inactive_attr,
+        non_empty_attr: default_attr(),
+    };
 
-    Pager::new(active_attr, inactive_attr, default_attr())
+    Pager::new(pager_attrs)
 }
 
 fn window_title() -> ActiveWindowTitle {
@@ -43,10 +48,10 @@ fn window_title() -> ActiveWindowTitle {
 fn cpu() -> Result<cpu::Cpu, anyhow::Error> {
     let render = Box::new(|load| {
         let mut color = xcolor::foreground().to_hex();
-        if load > 10 {
+        if load > 25 {
             color = xcolor::yellow().to_hex();
         }
-        if load > 50 {
+        if load > 75 {
             color = xcolor::red().to_hex();
         }
         format!("CPU <span foreground=\"{}\">{}%</span>", color, load)

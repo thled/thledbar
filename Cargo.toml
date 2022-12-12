@@ -1,10 +1,10 @@
 [package]
 name = "thledbar"
-version = "1.2.0"
+version = "1.2.2"
 edition = "2021"
 
 [dependencies]
-cnx = { git = "https://github.com/thled/cnx", branch = "mark_hidden_desktops" }
-cnx-contrib = { git = "https://github.com/thled/cnx", branch = "mark_hidden_desktops" }
+cnx = { git = "https://github.com/thled/cnx", branch = "fix-cpu-usage" }
+cnx-contrib = { git = "https://github.com/thled/cnx", branch = "fix-cpu-usage" }
 anyhow = "1.0.62"
 xrdb = "0.1.1"
