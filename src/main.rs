@@ -4,6 +4,7 @@ use cnx::text::*;
 use cnx::widgets::*;
 use cnx::{Cnx, Position};
 use cnx_contrib::widgets::battery::*;
+use cnx_contrib::widgets::command::Command;
 use cnx_contrib::widgets::cpu;
 
 mod xcolor;
@@ -13,6 +14,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     cnx.add_widget(workspaces());
     cnx.add_widget(window_title());
+    cnx.add_widget(pomodoro());
     cnx.add_widget(cpu()?);
     cnx.add_widget(battery());
     cnx.add_widget(clock());
@@ -43,6 +45,10 @@ fn workspaces() -> Pager {
 
 fn window_title() -> ActiveWindowTitle {
     ActiveWindowTitle::new(default_attr())
+}
+
+fn pomodoro() -> Command {
+    Command::new(default_attr(), "uairctl fetch '{time}' | cut -d' ' -f1".into())
 }
 
 fn cpu() -> Result<cpu::Cpu, anyhow::Error> {
