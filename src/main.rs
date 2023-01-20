@@ -48,7 +48,10 @@ fn window_title() -> ActiveWindowTitle {
 }
 
 fn pomodoro() -> Command {
-    Command::new(default_attr(), "uairctl fetch '{time}' | cut -d' ' -f1".into())
+    Command::new(
+        default_attr(),
+        "uairctl fetch '{time}' | cut -d' ' -f1".into(),
+    )
 }
 
 fn cpu() -> Result<cpu::Cpu, anyhow::Error> {
