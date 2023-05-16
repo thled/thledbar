@@ -1,4 +1,5 @@
 use std::error::Error;
+use std::time::Duration;
 
 use cnx::text::*;
 use cnx::widgets::*;
@@ -51,6 +52,7 @@ fn pomodoro() -> Command {
     Command::new(
         default_attr(),
         "uairctl fetch '{time}' | cut -d' ' -f1".into(),
+        Duration::from_secs(10),
     )
 }
 
