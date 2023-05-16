@@ -71,7 +71,7 @@ fn cpu() -> Result<cpu::Cpu, anyhow::Error> {
 }
 
 fn battery() -> Battery {
-    Battery::new(default_attr(), Color::red(), Some("BAT1".into()), None)
+    Battery::new(default_attr(), Color::red(), None, None)
 }
 
 fn clock() -> Clock {
